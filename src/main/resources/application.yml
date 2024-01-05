@@ -1,0 +1,41 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  application:
+    name: rickandmory
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+  datasource:
+    driverClassName: ${DATASOURCE_DRIVE}
+    url: ${DATASOURCE_URL}
+    username: ${DATASOURCE_USERNAME}
+    password: ${DATASOURCE_PASSWORD}
+    hikari:
+      maximum-pool-size: ${COMMON_DATASOURCE_POOL_SIZE}
+      pool-name: ${COMMON_DATASOURCE_POOL_NAME}
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: true
+    show-sql: false
+
+  rabbitmq:
+    host: rabbitmq
+    port: 5672
+    username: ${RABBITMQ_USER}
+    password: ${RABBITMQ_PASSWORD}
+    connection-timeout: 6000
+
+logging:
+  level:
+    com.automatizacion: DEBUG
+
+server:
+  port: 7000
+  servlet:
+    context-path: /rickandmorty
+
+URL_BASE_API: ${URL_BASE_API}
